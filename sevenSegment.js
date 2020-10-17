@@ -14,9 +14,20 @@ const segmentOnOff = [
   '01001110', // C
   '00111101', // D
   '01001111', // E
-  '01000111'  // F
+  '01000111', // F
+  '10000000', // .
+  '00000001', // -
 ];
-
+/**
+ * 
+ *    a
+ *    _
+ * f | | b
+ *  g -
+ * e | | c
+ *    - .
+ *    d  Dp
+ */
 class SevenSegment {
   constructor(x, y) {
     this.x = x;
@@ -38,7 +49,7 @@ class SevenSegment {
     }
   }
   setSegments(val) {
-    if(val >= 0 && val < 16) {
+    if(val >= 0 && val < segmentOnOff.length) {
       let segmentSettings = segmentOnOff[val];
       for(let i = 0; i < segmentSettings.length; i++) {
         this.segments[i].setOn(segmentSettings[i] == '0'?false:true);
